@@ -1,6 +1,5 @@
 package iwoom.controller;
 
-import iwoom.service.AccountService;
 import iwoom.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +20,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<String> getAccountByCustomer(@PathVariable("id") String id) {
+    public ResponseEntity<String> getCustomer(@PathVariable("id") String id) {
         return service.getCustomerById(id);
     }
 }
