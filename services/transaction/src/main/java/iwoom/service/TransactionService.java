@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 
 @Service
-public class AccountService {
+public class TransactionService {
 
     @Value("${rest.client.url}")
     private String url;
@@ -20,16 +20,18 @@ public class AccountService {
     private RestTemplate restTemplate;
 
     @Autowired
-    public AccountService(RestTemplate restTemplate){
+    public TransactionService(RestTemplate restTemplate){
         this.restTemplate = restTemplate;
     }
 
-    public ResponseEntity<String> getAccountByCustomer(String customerId){
+    public ResponseEntity<String> getTransactionById(String transId){
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", apiKey);
 
         final HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        return restTemplate.exchange(url + String.format("/customers/%s/accounts", customerId),HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> result = restTemplate.exchange(url + String.format("/transactions/%s", transId),HttpMethod.GET, entity, String.class);
+
+        return result;
     }
 }

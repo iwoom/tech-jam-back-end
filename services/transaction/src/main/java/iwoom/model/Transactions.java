@@ -9,6 +9,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Accounts {
-    private List<Account> accounts;
+public class Transactions {
+    private List<Transaction> accounts;
 }
