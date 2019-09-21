@@ -1,7 +1,6 @@
 package iwoom.controller;
 
-import iwoom.model.Accounts;
-import iwoom.service.AccountService;
+import iwoom.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,18 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/accounts")
-public class AccountController {
+@RequestMapping("/api/customers")
+public class CustomerController {
 
-    private AccountService service;
+    private CustomerService service;
 
     @Autowired
-    public AccountController(AccountService service){
+    public CustomerController(CustomerService service){
         this.service = service;
     }
 
-    @GetMapping("/customerid/{id}")
-    public Accounts getAccountByCustomer(@PathVariable("id") String id) {
-         return service.getAccountByCustomer(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<String> getCustomer(@PathVariable("id") String id) {
+        return service.getCustomerById(id);
     }
 }
