@@ -6,8 +6,6 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-
 @Service
 public class TransactionService {
 
@@ -34,9 +32,15 @@ public class TransactionService {
 
         return result;
     }
+    public ResponseEntity<String> getTransactionHistory(String accountId){
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", apiKey);
 
-    public ResponseEntity<String> getTransactionHistory(float accountId){
-        
+        final HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<String> result = restTemplate.exchange(url + String.format("/transactions/%s", accountId),HttpMethod.GET, entity, String.class);
+
+        return result;
 
 
     }

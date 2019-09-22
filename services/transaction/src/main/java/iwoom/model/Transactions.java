@@ -10,5 +10,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Transactions {
-    private List<Transaction> accounts;
+    private List<Transaction> transactions;
 }
