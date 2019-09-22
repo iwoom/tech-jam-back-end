@@ -34,4 +34,10 @@ public class TransactionService {
 
         return result;
     }
+
+    public ResponseEntity<String> getTransactionHistory(float accountId){
+        
+
+
+    }
 }
