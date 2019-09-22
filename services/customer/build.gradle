@@ -23,7 +23,7 @@ version = '1.0'
 sourceCompatibility = '1.8'
 
 bootJar {
-	archiveFileName = 'customer-service'
+	archiveFileName = 'account-service'
 	version =  '1.0'
 }
 
