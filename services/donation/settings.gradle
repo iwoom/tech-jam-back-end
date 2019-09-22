@@ -11,4 +11,4 @@ pluginManagement {
 		}
 	}
 }
-rootProject.name = 'transaction-services'
+rootProject.name = 'donation-service'

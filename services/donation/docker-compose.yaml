@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  db:
+    image: "postgres:latest"
+    container_name: "donation_store"
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+volumes:
+  my_dbdata:
