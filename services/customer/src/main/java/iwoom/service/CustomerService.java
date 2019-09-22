@@ -1,9 +1,5 @@
 package iwoom.service;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.jayway.jsonpath.JsonPath;
 import iwoom.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
