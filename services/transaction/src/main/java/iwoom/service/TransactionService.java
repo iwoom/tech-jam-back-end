@@ -28,8 +28,7 @@ public class TransactionService {
         this.objectMapper = objectMapper;
     }
 
-    //public ResponseEntity<String> getAccountByCustomer(String customerId){
-    public ResponseEntity<String> getTransaction(String transId){
+    public ResponseEntity<String> getTransactionById(String transId){
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", apiKey);
 
