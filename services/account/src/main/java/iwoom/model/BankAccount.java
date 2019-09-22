@@ -4,13 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.List;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Accounts {
-    private List<BankAccount> bankAccounts;
-    private List<CreditAccount> creditAccounts;
+public class BankAccount extends Account{
+    private int branchNumber;
 }

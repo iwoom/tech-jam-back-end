@@ -13,6 +13,9 @@ import java.util.Date;
 @NoArgsConstructor
 public class Customer {
 
+    @JsonProperty("type")
+    private String type;
+
     @JsonProperty("id")
     private String id;
 
@@ -20,7 +23,7 @@ public class Customer {
     private int age;
 
     @JsonProperty("birthDate")
-    private Date birthDate;
+    private String birthDate;
 
     @JsonProperty("gender")
     private String gender;
@@ -28,15 +31,9 @@ public class Customer {
     @JsonProperty("givenName")
     private String givenName;
 
-    @JsonProperty("maidenName")
-    private String maidenName;
-
-    @JsonProperty("otherName")
-    private String otherName;
-
-    @JsonProperty("sureName")
-    private String sureName;
+    @JsonProperty("surName")
+    private String surName;
 
     @JsonProperty("totalIncome")
-    private double totalIncome;
+    private Double totalIncome;
 }

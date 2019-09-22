@@ -9,12 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Account {
-    private String id;
+public class Card {
+    private String securityCode;
+    private String maskedNumber;
     private String customerId;
-    private String maskedAccountNumber;
-    private String type;
-    private String openDate;
-    private double balance;
-    private String currency;
+    private String accountId;
+    private String nameOnCard;
 }

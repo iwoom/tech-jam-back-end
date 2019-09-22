@@ -1,21 +1,15 @@
 package iwoom.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 import iwoom.model.Customer;
-import net.minidev.json.JSONObject;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.json.JsonParser;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 @Service
 public class CustomerService {
@@ -49,19 +43,20 @@ public class CustomerService {
     }
 
     private Customer retrieveCustomerInfo(String response) {
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//        String customerJSON =  JsonPath.read(response, "$.result").toString();
-//
+
         Customer customer = new Customer();
-//
-//        try {
-//            customer = new ObjectMapper().readValue(customerJSON, Customer.class);
-//        } catch (Exception e) {
-//            System.out.println(e.getStackTrace());
-//        }
-
-
+        try {
+            customer.setType(JsonPath.read(response, "$.result.type"));
+            customer.setId(JsonPath.read(response, "$.result.id"));
+            customer.setAge(JsonPath.read(response, "$.result.age"));
+            customer.setBirthDate(JsonPath.read(response, "$.result.birthDate"));
+            customer.setGender(JsonPath.read(response, "$.result.gender"));
+            customer.setGivenName(JsonPath.read(response, "$.result.givenName"));
+            customer.setSurName(JsonPath.read(response, "$.result.surname"));
+            customer.setTotalIncome(JsonPath.read(response, "$.result.totalIncome"));
+        } catch (Exception e) {
+            System.out.println(e.getStackTrace());
+        }
 
         return customer;
     }

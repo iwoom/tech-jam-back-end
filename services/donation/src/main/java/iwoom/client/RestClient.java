@@ -6,21 +6,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class TransactionClient implements Client{
-
-    @Value("${transaction.service.url}")
-    private String url;
+public class RestClient {
 
     private RestTemplate restTemplate;
 
     @Autowired
-    public TransactionClient(RestTemplate restTemplate){
+    public RestClient(RestTemplate restTemplate){
         this.restTemplate = restTemplate;
     }
 
-
-    @Override
-    public String getById(String id) {
+    public String getById(String id, String url) {
         return restTemplate.getForObject(url + id, String.class);
     }
 }

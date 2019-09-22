@@ -3,6 +3,10 @@ services:
   db:
     image: "postgres:latest"
     container_name: "donation_store"
+    environment:
+      POSTGRES_USER: donations
+      POSTGRES_PASSWORD: donate123
+      POSTGRES_DB: donations
     ports:
       - "5432:5432"
     volumes:
