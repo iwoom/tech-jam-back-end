@@ -1,6 +1,6 @@
 package iwoom.controller;
 
-import iwoom.model.Donation;
+import iwoom.model.DonationRequest;
 import iwoom.service.DonationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class DonationController {
     }
 
     @PostMapping("/donate")
-    public String createDonation(@RequestBody Donation donation){
-        return service.donate(donation);
+    public String createDonation(@RequestBody DonationRequest donationRequest){
+        return service.donate(donationRequest);
     }
 }
