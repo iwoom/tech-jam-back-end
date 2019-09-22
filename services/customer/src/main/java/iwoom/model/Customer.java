@@ -1,12 +1,10 @@
 package iwoom.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Date;
 
 @Data
@@ -14,13 +12,28 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
+
+    @JsonProperty("type")
+    private String type;
+
+    @JsonProperty("id")
     private String id;
+
+    @JsonProperty("age")
     private int age;
-    private Date birthDate;
+
+    @JsonProperty("birthDate")
+    private String birthDate;
+
+    @JsonProperty("gender")
     private String gender;
+
+    @JsonProperty("givenName")
     private String givenName;
-    private String maidenName;
-    private String otherName;
-    private String sureName;
-    private double totalIncome;
+
+    @JsonProperty("surName")
+    private String surName;
+
+    @JsonProperty("totalIncome")
+    private Double totalIncome;
 }
